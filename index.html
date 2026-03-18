@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>my book</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+            font-family: Arial, sans-serif;
+        }
+
+        /* الشعار */
+        .logo {
+            width: 120px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 10;
+        }
+
+        /* شريط السلفر */
+        .silver-bar {
+            background-color: silver;
+            height: 60px;
+            margin-top: 120px;
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: black;
+        }
+
+        /* المنطقة الرمادية */
+        .content {
+            background-color: #505050;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* كل منتج */
+        .item {
+            background-color: #3a3a3a;
+            width: 200px;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+        }
+
+        .item img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .item p {
+            margin-top: 8px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .price {
+            margin-top: 5px;
+            font-size: 16px;
+            color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الشعار -->
+    <img class="logo"
+        src="https://th.bing.com/th/id/OIP.LFglCz2GA6WnTrHEAHT56gHaEK?w=261&h=183&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+    />
+
+    <!-- شريط السلفر -->
+    <div class="silver-bar">my book</div>
+
+    <!-- المنتجات -->
+    <div class="content">
+
+        <a href="phone.html" class="item">
+            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9" />
+            <p>جوال</p>
+            <div class="price">2500 ريال</div>
+        </a>
+
+        <a href="car.html" class="item">
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70" />
+            <p>سيارة</p>
+            <div class="price">85,000 ريال</div>
+        </a>
+
+        <a href="house.html" class="item">
+            <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994" />
+            <p>بيت</p>
+            <div class="price">950,000 ريال</div>
+        </a>
+
+        <a href="plane.html" class="item">
+            <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df" />
+            <p>طيارة</p>
+            <div class="price">12,000,000 ريال</div>
+        </a>
+
+    </div>
+
+</body>
+</html>
