@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>حسابي</title>
+<style>
+body { background:#111; color:white; font-family:Arial; text-align:center; padding-top:80px; }
+button { padding:10px 20px; border:none; border-radius:8px; cursor:pointer; margin:10px; }
+a { color:#00ffcc; text-decoration:none; }
+</style>
+</head>
+<body>
+
+<h2>حسابي</h2>
+
+<p id="welcome"></p>
+
+<button style="background:#ff6666; color:white;" onclick="logout()">تسجيل خروج</button>
+<br>
+<a href="index.html">العودة للصفحة الرئيسية</a>
+
+<script>
+let loggedIn = localStorage.getItem("loggedIn");
+let user = localStorage.getItem("username");
+
+if(loggedIn !== "true" || !user) {
+    window.location.href = "login.html";
+} else {
+    welcome.innerText = "مرحبًا، " + user;
+}
+
+function logout() {
+    localStorage.setItem("loggedIn", "false");
+    window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
