@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تقييم تجربتك</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #000000, #0a0f14, #001f1f);
+            font-family: "Arial", sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 60px;
+            font-size: 36px;
+            color: #00ffcc;
+            text-shadow: 0 0 15px #00ffcc;
+        }
+
+        .rating-box {
+            margin-top: 40px;
+            font-size: 22px;
+        }
+
+        .stars {
+            font-size: 45px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .star {
+            color: #555;
+            transition: 0.2s;
+        }
+
+        .star:hover,
+        .star.active {
+            color: gold;
+            text-shadow: 0 0 10px gold;
+        }
+
+        #ratingText {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #00ffcc;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 50px;
+            padding: 12px 25px;
+            background: #ffcc00;
+            color: black;
+            border-radius: 10px;
+            font-size: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 0 15px #ffcc00;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 25px #ffe066;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>قيّم تجربتك</h1>
+
+    <div class="rating-box">
+        <p>اختر عدد النجوم:</p>
+
+        <div class="stars">
+            <span class="star" onclick="rate(1)">★</span>
+            <span class="star" onclick="rate(2)">★</span>
+            <span class="star" onclick="rate(3)">★</span>
+            <span class="star" onclick="rate(4)">★</span>
+            <span class="star" onclick="rate(5)">★</span>
+        </div>
+
+        <p id="ratingText"></p>
+    </div>
+
+    <a href="index.html" class="back-btn">رجوع</a>
+
+    <script>
+        function rate(stars) {
+            let starElements = document.querySelectorAll(".star");
+
+            starElements.forEach((s, i) => {
+                if (i < stars) s.classList.add("active");
+                else s.classList.remove("active");
+            });
+
+            document.getElementById("ratingText").innerText =
+                "شكراً! تقييمك: " + stars + " نجوم ⭐";
+        }
+    </script>
+
+</body>
+</html>

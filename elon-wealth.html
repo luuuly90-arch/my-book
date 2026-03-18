@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>إنفاق ثروة إيلون ماسك</title>
+
+    <style>
+        /* خلفية فخمة */
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #000000, #0a0f14, #001f1f);
+            font-family: "Arial", sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        /* عنوان الصفحة */
+        h1 {
+            margin-top: 40px;
+            font-size: 38px;
+            color: #00ffcc;
+            text-shadow: 0 0 15px #00ffcc;
+        }
+
+        /* صندوق الثروة */
+        .wealth-box {
+            margin-top: 20px;
+            background: rgba(0, 255, 200, 0.1);
+            padding: 25px;
+            width: 330px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 15px;
+            box-shadow: 0 0 20px #00ffcc;
+            font-size: 24px;
+            font-weight: bold;
+            backdrop-filter: blur(5px);
+        }
+
+        /* منطقة العناصر */
+        .items {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        /* بطاقة العنصر */
+        .item-card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 20px;
+            width: 180px;
+            border-radius: 15px;
+            box-shadow: 0 0 12px #444;
+            transition: 0.3s;
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+        }
+
+        /* تأثير عند المرور */
+        .item-card:hover {
+            transform: scale(1.12);
+            box-shadow: 0 0 20px #00ffee;
+        }
+
+        /* تأثير عند الضغط */
+        .item-card:active {
+            transform: scale(0.95);
+        }
+
+        /* الأيقونات */
+        .icon {
+            font-size: 45px;
+            text-shadow: 0 0 10px white;
+        }
+
+        /* عداد العناصر */
+        .item-card p span {
+            color: #00ffcc;
+            font-weight: bold;
+        }
+
+        /* زر الرجوع */
+        .back-btn {
+            display: inline-block;
+            margin-top: 50px;
+            padding: 12px 25px;
+            background: #ffcc00;
+            color: black;
+            border-radius: 10px;
+            font-size: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 0 15px #ffcc00;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 25px #ffe066;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>إنفاق ثروة إيلون ماسك</h1>
+
+    <div class="wealth-box">
+        المتبقي من الثروة:
+        <br>
+        <strong id="money">900,000,000,000 ريال</strong>
+    </div>
+
+    <h2 style="margin-top:40px;">اضغط على الشيء لشرائه</h2>
+
+    <div class="items">
+
+        <div class="item-card" onclick="buy('car')">
+            <span class="icon">🚗</span>
+            <h3>سيارة</h3>
+            <p>السعر: 85,000 ريال</p>
+            <p>عدد السيارات: <span id="carCount">0</span></p>
+        </div>
+
+        <div class="item-card" onclick="buy('plane')">
+            <span class="icon">✈️</span>
+            <h3>طيارة</h3>
+            <p>السعر: 12,000,000 ريال</p>
+            <p>عدد الطيارات: <span id="planeCount">0</span></p>
+        </div>
+
+        <div class="item-card" onclick="buy('house')">
+            <span class="icon">🏠</span>
+            <h3>بيت</h3>
+            <p>السعر: 950,000 ريال</p>
+            <p>عدد البيوت: <span id="houseCount">0</span></p>
+        </div>
+
+        <div class="item-card" onclick="buy('phone')">
+            <span class="icon">📱</span>
+            <h3>جوال</h3>
+            <p>السعر: 2,500 ريال</p>
+            <p>عدد الجوالات: <span id="phoneCount">0</span></p>
+        </div>
+
+    </div>
+
+    <a href="index.html" class="back-btn">رجوع للصفحة الرئيسية</a>
+
+    <script>
+        let wealth = 900000000000;
+
+        let items = {
+            car: { count: 0, price: 85000 },
+            plane: { count: 0, price: 12000000 },
+            house: { count: 0, price: 950000 },
+            phone: { count: 0, price: 2500 }
+        };
+
+        function buy(type) {
+            let item = items[type];
+
+            if (wealth >= item.price) {
+                wealth -= item.price;
+                item.count++;
+
+                document.getElementById("money").innerText =
+                    wealth.toLocaleString() + " ريال";
+
+                document.getElementById(type + "Count").innerText = item.count;
+            } else {
+                alert("ما عاد باقي فلوس!");
+            }
+        }
+    </script>
+
+</body>
+</html>
